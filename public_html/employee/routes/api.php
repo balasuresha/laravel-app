@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Employee;
+use App\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::get('fetchAdmin/{id}',function($id){
+//    return Admin::with('Employee')->where('id',$id)->get();
+//});
+
+Route::get('fetchAdmin/{id}','AdminController@show');

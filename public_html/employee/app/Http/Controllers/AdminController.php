@@ -62,7 +62,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = Admin::with('Employee')->where('id',$id)->get()->toArray();
+        return (!empty($response) && !is_null($response)) ? $response : ['error' => 'Resource not found','code' => 400];
     }
 
     /**

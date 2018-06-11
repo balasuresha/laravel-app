@@ -4,7 +4,8 @@
   <div class="container">
       <h1 class="text-center">Employee Details</h1>
       <legend></legend>
-      <a href="{{action('EmployeeController@create')}}" class="btn btn-primary text-left">Add New Employee</a><br><br>
+      <a href="{{ url('/home')}}" class="btn btn-danger text-left">Home</a>
+      <a href="{{action('EmployeeController@create')}}" class="btn btn-primary text-left">Add New Employee</a><br><br><br>
     <table class="table table-striped">
     <thead>
       <tr>
