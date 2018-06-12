@@ -57,13 +57,18 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $request['admin_id']
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $response = Admin::with('Employee')->where('id',$id)->get()->toArray();
-        return (!empty($response) && !is_null($response)) ? $response : ['error' => 'Resource not found','code' => 400];
+    public function show(Request $request)
+    {   
+        if(isset($request['admin_id']) && !empty($request['admin_id'])) {
+            $response = Admin::with('Employee')->where('id',$request['admin_id'])->get()->toArray();
+            return (!empty($response) && !is_null($response)) ? $response : ['error' => 'Resource not found','code' => 400];
+        }  else {
+            return ['error' => 'Please pass the valid parameters',101];
+        }
+        
     }
 
     /**

@@ -23,4 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return Admin::with('Employee')->where('id',$id)->get();
 //});
 
-Route::get('fetchAdmin/{id}','AdminController@show');
+Route::post('fetchAdmin','AdminController@show');
